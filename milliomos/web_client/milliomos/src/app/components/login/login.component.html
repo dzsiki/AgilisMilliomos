@@ -1,0 +1,56 @@
+<div [hidden]="!loading" class="loading">
+  <img class="loadingpic" src="assets/images/kreditmilliomos-red.png" alt="Loading animation">
+</div>
+
+<div class="content">
+  <div [formGroup]="loginForm" class="login">
+    <h2>Bejelentkezés</h2>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      {{errorMsg}}
+    </div>
+    <div class="input-box">
+      <label for="logemail">e-mail cím</label>
+      <input id="logemail" type="text" formControlName="email" #email placeholder="Add meg az e-mail címedet">
+    </div>
+    <div class="input-box">
+      <label for="logpassword">jelszó</label>
+      <input id="logpassword" formControlName="password" type="password" #password placeholder="Add meg a jelszavadat">
+    </div>
+    <div class="forgot-password">
+      <a (click)="isNewPassClicked = true">Elfelejtetted a jelszavad?</a>
+    </div>
+    <div class="login-holder">
+      <button class="login-button" type="submit"
+        (click)="this.onLoginClicked(email.value, password.value)">Bejelentkezés</button>
+    </div>
+    <div class="separator">
+      <div class="line"></div>
+      <div class="text">vagy</div>
+      <div class="line"></div>
+    </div>
+    <div class="google">
+      <button (click)="this.onGoogleLogin()"><img src="../../assets/images/google-logo.png"> Folytatás
+        Google-fiókkal</button>
+
+    </div>
+    <div class="registration">
+      Nincs még fiókod? <a routerLink="/register">Regisztrálj!</a>
+    </div>
+  </div>
+</div>
+
+
+<div class="new-password" *ngIf="isNewPassClicked">
+  <div class="new-password-content">
+    <h2>Jelszó visszaállítása</h2>
+    <div *ngIf="error" class="alert alert-danger" role="alert">
+      {{errorMsg}}
+    </div>
+    <div class="input-box">
+      <label for="resemail">e-mail cím</label>
+      <input type="text" id="resemail" [(ngModel)]="newpassemail" placeholder="Add meg az e-mail címedet" required>
+    </div>
+    <button (click)="onNewPass()">Jelszó visszaállítása</button>
+    <button (click)="isNewPassClicked=false" class="close"><i class="material-icons">close</i></button>
+  </div>
+</div>

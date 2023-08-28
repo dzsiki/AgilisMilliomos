@@ -1,0 +1,49 @@
+<div [hidden]="!loading" class="loading"><img class="loadingpic" src="assets/images/kreditmilliomos-red.png"
+  alt="Loading_animation"></div>
+
+<div class="content">
+  <div class="title">
+    <h2>Legyen Ön is kreditmilliomos!</h2>
+  </div>
+  <div class="lobby">
+    <div class="menu">
+      <a routerLink="/profile"><i class="material-icons">exit_to_app</i></a>
+      <h3>Játék beállítása</h3>
+      <div class="category">
+        <label>kategória</label>
+        <select #category>
+          <option [defaultSelected]=true [ngValue]="" value="Válassz kategóriát">Válassz kategóriát!</option>
+          <option *ngFor="let category of allQuestionCategories; let i = index" [attr.data-index]="i">{{category.category}}</option>
+        </select>
+      </div>
+      <div class="difficulty">
+        <label>nehézségi szint</label>
+        <div class="buttons">
+          <div class="button">
+            <button (click)="mouseClick(0)" [ngClass]="{'active': difficulty == '0'}">Könnyű</button>
+          </div>
+          <div class="button">
+            <button (click)="mouseClick(1)" [ngClass]="{'active': difficulty == '1'}">Közepes</button>
+          </div>
+          <div class="button">
+            <button (click)="mouseClick(2)" [ngClass]="{'active': difficulty == '2'}">Nehéz</button>
+          </div>
+        </div>
+      </div>
+      <div class="time">
+        <label>időkorlát</label>
+        <div class="timer material-icons">
+          timer
+          <input type="range" min="0" max="300" steps="10" [(ngModel)]="time">
+        </div>
+        <div *ngIf="this.time != 0">
+          <span>{{this.time}} másodperc</span>
+        </div>
+        <div *ngIf="this.time == 0">
+          <span>Végtelen idő</span>
+        </div>
+      </div>
+      <button (click)="startNewGame(category.value)">Játék indítása</button>
+    </div>
+  </div>
+</div>

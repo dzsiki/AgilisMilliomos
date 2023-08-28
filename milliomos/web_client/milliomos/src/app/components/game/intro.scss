@@ -1,0 +1,211 @@
+.intro-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  background-color: rgba(0, 0, 0, 0.4);
+  overflow: auto;
+  z-index: 1;
+}
+
+.modal-content {
+  margin: auto;
+  width: 65%;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 16px;
+}
+
+.dot {
+  height: 70%;
+  width: auto;
+  display: block;
+  position: absolute;
+  margin: auto;
+  top: 15%;
+  left: 26%;
+  text-align: center;
+  animation: dotRotate 19.375s forwards linear;
+}
+
+.wrapper {
+  width: 50%;
+  height: 10%;
+  display: block;
+  position: relative;
+  padding-top: 24%;
+  top: 0;
+  bottom: 0;
+  animation: slideIn 15.15s forwards linear;
+}
+
+.head {
+  width: 6%;
+  height: 17%;
+  border: 0.3vw solid black;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 7%;
+  left: 18%;
+  transform: rotate(25deg);
+  transform-origin: center bottom;
+}
+
+.mouth {
+  position: absolute;
+  width: 2%;
+  height: 0.5%;
+  border-style: solid;
+  border-color: red;
+  border-radius:0 0 0 70%;
+  border-width:0 0 0.3vw 0;
+  transform: rotate(25deg);
+  top: 20%;
+  left:22.5%;
+  z-index: -1;
+  display: block;
+
+}
+
+.eye{
+  width: 0.8%;
+  height: 2%;
+  border: 0.2vw solid black;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  top: 15%;
+  left: 23.5%;
+  transform: rotate(25deg);
+  transform-origin: center bottom;
+}
+
+.torso {
+  width:0.8%;
+  height: 27%;
+  border: 0.1vw solid black;
+  display: block;
+  position: absolute;
+  top: 23%;
+  left: 20.8%;
+  transform: rotate(5deg);
+  background-color: black;
+
+}
+
+.leftleg {
+  width:0.8%;
+  height: 27%;
+  border: 0.1vw solid black;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 20.2%;
+  transform: rotate(20deg);
+  animation: moving1 3.03s alternate infinite ease-in-out;
+  animation-iteration-count: 5;
+  transform-origin: top;
+  background-color: black;
+}
+
+.rightleg {
+  width:0.8%;
+  height: 27%;
+  border: 0.1vw solid black;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 20.2%;
+  transform: rotate(-20deg);
+  animation: moving2 3.03s alternate infinite ease-in-out;
+  animation-iteration-count: 5;
+  transform-origin: top;
+  background-color: black;
+}
+
+.leftarm {
+  width: 0.6%;
+  height: 31%;
+  border: 0.1vw solid black;
+  display: block;
+  position: absolute;
+  top: 9%;
+  left: 29%;
+  transform: rotate(-90deg);
+  transform-origin: 100%;
+  background-color: black;
+}
+
+.rightarm {
+  width: 0.6%;
+  height: 31%;
+  border: 0.1vw solid black;
+  display: block;
+  position: absolute;
+  top: 20%;
+  left: 28%;
+  transform: rotate(-60deg);
+  transform-origin: 0%;
+  background-color: black;
+}
+
+.modal-content button {
+  padding: 12px 32px;
+  margin: 14px 0 24px 0;
+  position: absolute;
+  right: 24px;
+  bottom: 0;
+  background-color: #efa044;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  transition: 0.5s;
+}
+
+.modal-content button:hover {
+  background-color: #ee8c1d;
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(50%);
+
+  }
+}
+
+@keyframes moving1 {
+  0% {
+    transform: rotate(20deg);
+  }
+  100% {
+    transform: rotate(-20deg);
+  }
+}
+
+@keyframes moving2 {
+  0% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(20deg);
+  }
+}
+
+@media screen and(max-width: 480px){
+  .modal-content {
+    width: 100%;
+  }
+
+  
+}
